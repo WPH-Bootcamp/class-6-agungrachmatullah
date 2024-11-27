@@ -3,9 +3,8 @@
 
 @function get-color($type, $level) {
   @if map.has-key($colors, $type) {
-    $color-group: map.get($colors, $type);
-    @if $color-group and map.has-key($color-group , $level ) {
-      $color: map.get($color-group , $level );
+    @if map.get($colors, $type) and map.has-key(map.get($colors, $type) , $level ) {
+      $color: map.get(map.get($colors, $type) , $level );
       @return $color;
     } @else {
       @warn "Invalid color level.";
